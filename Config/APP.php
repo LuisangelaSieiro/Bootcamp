@@ -8,7 +8,7 @@
 	/*----------  
 	Nombre de la empresa o compañia
 	----------*/
-	const APP_NAME="BOOTCAMP2";
+	const APP_NAME="BOOTCAMP";
 
 
 	/*----------  Idioma - Language

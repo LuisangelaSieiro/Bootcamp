@@ -7,7 +7,7 @@
 <body  id="page-top">
 <?php
     $peticionAjax=false;
-    require_once "./controller/viewcontroller.php";
+    require_once "./controller/viewController.php";
     $ins_views = new viewController();
 
     $view=$ins_views->get_view_controller();
