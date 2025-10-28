@@ -3,7 +3,7 @@
 	/*----------  
 	Ruta o dominio del servidor
 	----------*/
-	const APP_URL="http://localhost/bootcamp-main/";
+	const APP_URL="http://localhost/Bootcamp-Luisangela/";
 
 	/*----------  
 	Nombre de la empresa o compañia
