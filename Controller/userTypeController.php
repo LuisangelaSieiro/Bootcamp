@@ -8,7 +8,7 @@
     class userTypeController extends userTypeModel{
         public function add_user_type_controller(){
             
-
+             //Recibiendo datos del usuario
             $Descripcion = mainModel::clean_string($_POST['descripcion_reg']);
             $estatus = mainModel::clean_string($_POST['estatus_reg']);
 
@@ -135,6 +135,7 @@
         }
         
         public function update_user_type_controller(){
+            //recibir los datos del formulario
             $id = mainModel::decryption($_POST['id_up']);
             $id = mainModel::clean_string($id);
             $Descripcion = mainModel::clean_string($_POST['descripcion_up']);
