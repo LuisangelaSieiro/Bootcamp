@@ -7,7 +7,7 @@
 <body  id="page-top">
 <?php
     $peticionAjax=false;
-    require_once "./controller/viewController.php";
+    require_once "./controller/viewcontroller.php";
     $ins_views = new viewController();
 
     $view=$ins_views->get_view_controller();
@@ -15,17 +15,7 @@
     if ($view=="login" || $view=="404") :
         require_once "./view/content/".$view."-view.php";
     else: 
-        session_start(['name'=>'BC']);
-        
         $page=explode("/", $_GET['views']);
-
-        require_once "./controller/loginController.php";
-        $lc = new loginController();
-
-        if(!isset($_SESSION['token_bc']) || !isset($_SESSION['usuario_bc'])){
-            $lc->force_log_out_controller();
-            exit();
-        }
     ?>
     <!-- Page Wrapper -->
         <div id="wrapper">

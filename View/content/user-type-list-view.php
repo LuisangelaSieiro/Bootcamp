@@ -1,3 +1,5 @@
+
+
 <div class="container-fluid">
     <nav class="mb-4">
         <ul class="nav nav-tabs mb-4">
@@ -27,12 +29,13 @@
 
 </div>
 <script>
-    const SERVERURL="<?php echo APP_URL ?>";
+    const SERVERURL="<?php APP_URL?>";
     $(document).ready(function() {
-        $('#dataTable').DataTable({
-            "language": {
-            "url": SERVERURL+"/view/js/dataTables-Español.json"
-            }
-        });
+    $('#dataTable').DataTable({
+        "language": {
+        "url": "../view/js/dataTables-Español.json"
+        }
+    });
+    
     });
 </script>

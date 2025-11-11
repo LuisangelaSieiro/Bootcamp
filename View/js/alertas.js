@@ -17,44 +17,37 @@ function enviar_formulario_ajax(e){
 		cache: 'no-cache',
 		body: data
 	}
-	if(tipo==="load"){
-		fetch(action,config)
-		.then(respuesta => respuesta.json())
-		.then(respuesta => {
-			return alertas_ajax(respuesta);
-		});
-	}else {
-		let texto_alerta;
-	
-		if(tipo==="save"){
-			texto_alerta="Los datos quedaran guardados en el sistema";
-		}else if(tipo==="delete"){
-			texto_alerta="Los datos serán eliminados completamente del sistema";
-		}else if(tipo==="update"){
-			texto_alerta="Los datos del sistema serán actualizados";
-		}else if(tipo==="search"){
-			texto_alerta="Se eliminará el término de búsqueda y tendrás que escribir uno nuevo";
-		}else{
-			texto_alerta="Quieres realizar la operación solicitada";
-		}
-	
-		Swal.fire({
-			title: '¿Estás seguro?',
-			text: texto_alerta,
-			icon: 'question',
-			showCancelButton: true,
-			confirmButtonText: 'Aceptar',
-			cancelButtonText: 'Cancelar'
-		}).then((result) => {
-			if(result.value){
-				fetch(action,config)
-				.then(respuesta => respuesta.json())
-				.then(respuesta => {
-					return alertas_ajax(respuesta);
-				});
-			}
-		});
+
+	let texto_alerta;
+
+	if(tipo==="save"){
+		texto_alerta="Los datos quedaran guardados en el sistema";
+	}else if(tipo==="delete"){
+		texto_alerta="Los datos serán eliminados completamente del sistema";
+	}else if(tipo==="update"){
+		texto_alerta="Los datos del sistema serán actualizados";
+	}else if(tipo==="search"){
+		texto_alerta="Se eliminará el término de búsqueda y tendrás que escribir uno nuevo";
+	}else{
+		texto_alerta="Quieres realizar la operación solicitada";
 	}
+
+	Swal.fire({
+		title: '¿Estás seguro?',
+		text: texto_alerta,
+		icon: 'question',
+		showCancelButton: true,
+		confirmButtonText: 'Aceptar',
+		cancelButtonText: 'Cancelar'
+	}).then((result) => {
+		if(result.value){
+			fetch(action,config)
+			.then(respuesta => respuesta.json())
+			.then(respuesta => {
+				return alertas_ajax(respuesta);
+			});
+		}
+	});
 
 }
 

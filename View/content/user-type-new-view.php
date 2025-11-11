@@ -12,7 +12,7 @@
     <div class="container-fluid card-body">
         <h1 class="h3 mb-4 text-gray-800">Registrar tipo de Usuario</h1>
         <form class="FormularioAjax" action="<?php echo APP_URL; ?>router/requestUserType.php" method="POST" data-form="save" autocomplete="off">
-            <input type="hidden" name="guardarTipoUsuario" value="1">
+            <input type="hidden" name="guardaTipoUsuario" value="1">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="inputName">DESCRIPCIÓN *</label>

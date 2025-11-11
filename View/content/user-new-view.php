@@ -16,31 +16,31 @@
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputName">NOMBRE *</label>
-                    <input type="text" class="form-control" id="inputName" name="nombre_reg" maxlength="35" >
+                    <input type="text" class="form-control" id="inputName" name="nombre-reg" maxlength="35" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{5,35}" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputUser">USUARIO *</label>
-                    <input type="text" class="form-control" id="inputUser" name="usuario_reg" maxlength="40"  >
+                    <input type="text" class="form-control" id="inputUser" name="usuario-reg" maxlength="20" pattern="[a-zA-ZñÑ0-9]{5,20}" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputPassword1">CONTRASEÑA *</label>
-                    <input type="password" class="form-control" id="inputPassword1" name="password_reg" maxlength="35" >
+                    <input type="password" class="form-control" id="inputPassword1" name="password1-reg" maxlength="35" pattern="[a-zA-Z0-9ñÑ*$.#]{5,35}">
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputPassword2">REPETIR CONTRASEÑA *</label>
-                    <input type="password" class="form-control" id="inputPassword2" name="password2_reg" maxlength="35" >
+                    <input type="password" class="form-control" id="inputPassword2" name="password2-reg" maxlength="35" pattern="[a-zA-Z0-9ñÑ*$.#]{5,35}" >
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                     <label for="inputEmail">CORREO *</label>
-                    <input type="email" class="form-control" id="inputEmail" name="email_reg" >
+                    <input type="email" class="form-control" id="inputEmail" name="email-reg" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputTelfn">TELEFONO </label>
-                    <input type="tel" class="form-control" id="inputTelfn" name="telefono_reg" ">
+                    <input type="tel" class="form-control" id="inputTelfn" name="telefono-reg" >
                 </div>
             </div>
             <div class="form-group">
@@ -49,16 +49,15 @@
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="inputType">TIPO DE USUARIO *</label>
-                    <select id="inputType" class="form-control" name="tipo_reg" >
-                        <option selected>SELECCIONE UN TIPO DE USUARIO</option>
-                        <?php
-                        echo $lc->generar_select_db("tipo_usuario","tipo_usuario_id","tipo_usuario_descripcion",null);
-                        ?>
+                    <select id="inputType" class="form-control" name="tipo-reg" >
+                        <option value="" selected="" disable="">Seleccione una opcion</option>
+                        <option value="1" >ADMINISTRADOR</option >
+                        
                     </select>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputStatus">ESTATUS *</label>
-                    <select id="inputStatus" class="form-control" name="estatus_reg" >
+                    <select id="inputStatus" class="form-control" name="estatus-reg" >
                         <option  value="1" selected>ACTIVO</option >
                         <option value="0" >INACTIVO</option>
                     </select>

@@ -2,7 +2,7 @@
 	$peticionAjax=true;
 	require_once "../config/APP.php";
     //petición a tipo de usuario
-    if (isset($_POST['guardarTipoUsuario']) || isset($_POST['id_up']) || isset($_POST['id_del'])) { 
+    if (isset($_POST['guardaTipoUsuario']) || isset($_POST['id_up']) || isset($_POST['id_del'])) { 
         /*--------- Instancia al controlador ---------*/
         require_once "../controller/userTypeController.php";
         $userTypeController = new userTypeController();
