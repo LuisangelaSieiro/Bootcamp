@@ -8,7 +8,7 @@
     class userTypeController extends userTypeModel{
         public function add_user_type_controller(){
             
-            // Recibiendo datos del formulario
+
             $Descripcion = mainModel::clean_string($_POST['descripcion_reg']);
             $estatus = mainModel::clean_string($_POST['estatus_reg']);
 
@@ -25,6 +25,7 @@
             }
 
             /*== Verificando integridad de los datos ==*/
+
             if(mainModel::verificar_datos("[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{5,30}", $Descripcion)){
                 $alert = [
                     "Alerta" => "simple",
@@ -134,7 +135,6 @@
         }
         
         public function update_user_type_controller(){
-            //recibiendo los datos
             $id = mainModel::decryption($_POST['id_up']);
             $id = mainModel::clean_string($id);
             $Descripcion = mainModel::clean_string($_POST['descripcion_up']);
@@ -183,9 +183,7 @@
                 "Descripcion" => $Descripcion,
                 "Estatus" => $estatus
             ];
-
             $update_user_type = userTypeModel::update_user_type_model($data_user_type_up);
-            
             if($update_user_type){
                 $alerta = [
                     "Alerta" => "recargar",

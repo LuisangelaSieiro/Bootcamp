@@ -6,6 +6,7 @@
     }
 
     class loginController extends loginModel {
+        // Controlador para iniciar sesion //
         public function log_in_controller(){
             /*== Limpiando los campos ==*/
             $username=mainModel::clean_string($_POST['username_login']);

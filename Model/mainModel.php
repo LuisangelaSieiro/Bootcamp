@@ -15,12 +15,14 @@
 			return $conexion;
 		}
 
+
 		/*--------- Funcion ejecutar consultas simples ---------*/
 		protected static function ejecutar_consulta_simple($consulta){
 			$sql=self::conectar()->prepare($consulta);
 			$sql->execute();
 			return $sql;
 		}
+
 
 		/*--------- Encriptar cadenas ---------*/
 		public function encryption($string){
@@ -32,6 +34,7 @@
 			return $output;
 		}
 
+
 		/*--------- Desencriptar cadenas ---------*/
 		protected static function decryption($string){
 			$key=hash('sha256', SECRET_KEY);
@@ -39,6 +42,7 @@
 			$output=openssl_decrypt(base64_decode($string), METHOD, $key, 0, $iv);
 			return $output;
 		}
+
 
 		/*--------- Funcion generar codigos aleatorios ---------*/
 		protected static function generar_codigo_aleatorio($letra,$longitud,$numero){
@@ -48,6 +52,7 @@
 			}
 			return $letra."-".$numero;
 		}
+
 
 		/*--------- Funcion limpiar cadenas ---------*/
 		protected static function clean_string($cadena){
@@ -90,6 +95,7 @@
 			}
 		}
 
+
 		/*--------- Funcion verificar fechas ---------*/
 		protected static function verificar_fecha($fecha){
 			$valores=explode('-', $fecha);
@@ -99,6 +105,26 @@
 				return true;
 			}
 		}
+
+		/*---------- Funcion buscar datos ----------*/
+		protected static function buscar_datos($tabla,$campo,$busqueda){
+			$consulta="SELECT SQL_CALC_FOUND_ROWS * FROM $tabla WHERE $campo LIKE '%$busqueda%' ORDER BY $campo ASC";
+			$conexion = mainModel::conectar();
+			$datos = $conexion->query($consulta);
+			$datos = $datos->fetchAll();
+			return $datos;
+		} /*--  Fin Funcion --*/
+
+		/*---------- Funcion buscar valor ----------*/
+		protected static function buscar_valor($tabla,$campo,$busqueda,$valor){
+			$consulta="SELECT SQL_CALC_FOUND_ROWS * FROM $tabla WHERE $campo='$busqueda' ORDER BY $campo ASC";
+			$conexion = mainModel::conectar();
+			$datos = $conexion->query($consulta);
+			$dato = $datos->fetch();
+			$respuesta = $dato[$valor];
+			return $respuesta;
+		} /*--  Fin Funcion --*/
+
 
 		/*---------- Funcion obtener nombre de mes ----------*/
 		public function obtener_nombre_mes($mes){
@@ -146,6 +172,7 @@
 			return $nombre_mes;
 		} /*--  Fin Funcion --*/
 
+
 		/*----------  Funcion generar select ----------*/
 		public function generar_select($datos,$campo_db){
 			$check_select='';
@@ -187,10 +214,11 @@
 					$campo = $rows[$campo_mostrar];
 				}
 
-				$select.='<option value="'.$rows[$campo_id].'" '.$seleccionado.'>'.$campo.'</option>';
+				$select.='<option value="'.$rows[$campo_id].'" '.$seleccionado.'>'.strtoupper($campo).'</option>';
 			}
 			
 			return $select;
 		} /*--  Fin Funcion --*/
+
 
 	}

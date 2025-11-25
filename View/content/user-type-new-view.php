@@ -11,12 +11,12 @@
     </nav>
     <div class="container-fluid card-body">
         <h1 class="h3 mb-4 text-gray-800">Registrar tipo de Usuario</h1>
-        <form class="FormularioAjax" action="<?php echo APP_URL; ?>router/requestUserType.php" method="POST" data-form="save" autocomplete="off">
-            <input type="hidden" name="guardaTipoUsuario" value="1">
+        <form class="FormularioAjax" action="<?php echo APP_URL; ?>router/requestUserType.php" method="POST" data-form="delete" autocomplete="off">
+            <input type="hidden" name="guardarTipoUsuario" value="1">
             <div class="form-row ">
                 <div class="form-group col-md-6">
                     <label for="inputName">DESCRIPCIÓN *</label>
-                    <input type="text" class="form-control" id="inputName" name="descripcion_reg" maxlength="30" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{5,30}" >
+                    <input type="text" class="form-control" id="inputName" name="descripcion_reg" maxlength="35" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{5,30}" >
                 </div>
                 <div class="form-group col-md-6">
                     <label for="inputStatus">ESTATUS *</label>

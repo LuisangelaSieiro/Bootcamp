@@ -16,29 +16,18 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">¡Bienvenido de nuevo!</h1>
                                     </div>
-                                    <form class="user">
+                                    <form action="" method="POST" autocomplete="off" class="user">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Introduzca su dirección de correo electronico...">
+                                            <input type="text" class="form-control form-control-user"
+                                                id="username_login" name="username_login" aria-describedby="emailHelp"
+                                                placeholder="Introduzca su usuario...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Contraseña">
+                                                id="password_login" name="password_login" placeholder="Contraseña">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Acuérdate de mí
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <a href="<?php echo APP_URL; ?>dashboard/" class="btn btn-primary btn-user btn-block">
-                                            Acceso
-                                        </a>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">LOG IN</button>
                                         <hr>
-                                        
-                                       
                                     </form>
                                     <hr>
                                     <div class="text-center">
@@ -56,3 +45,10 @@
 
     </div>
 </div>
+<?php
+    if(isset($_POST['username_login']) && isset($_POST['password_login'])) {
+        require_once './controller/loginController.php';
+        $ins_login = new loginController();
+        echo $ins_login->log_in_controller();
+    }
+?>

@@ -10,7 +10,7 @@
             $sql->execute();
             return $sql;
         }
-
+        
         protected function update_user_type_model($data){
             $sql = mainModel::conectar()->prepare("UPDATE tipo_usuario SET tipo_usuario_descripcion=:Descripcion,tipo_usuario_estatus=:Estatus WHERE tipo_usuario_id=:ID");
             $sql->bindParam(":ID", $data['ID']);

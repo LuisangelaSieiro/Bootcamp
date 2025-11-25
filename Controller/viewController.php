@@ -1,5 +1,7 @@
 <?php
+	
 	require_once "./model/viewModel.php";
+
 	class viewController extends viewModel{
 
 		/*--------- Controlador obtener plantilla ---------*/
