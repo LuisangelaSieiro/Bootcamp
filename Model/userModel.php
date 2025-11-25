@@ -17,11 +17,10 @@
         }
         //UPDATE usuario SET usuario_nombre=:Nombre,usuario_username=:Username WHERE usuario_id=:ID"
         protected function update_user_model($data){
-            $sql=mainModel::conectar()->prepare("UPDATE usuario SET usuario_nombre=:Nombre,usuario_username=:Username,usuario_password=:Password,usuario_email=:Email,usuario_telefono=:Telefono,usuario_tipo=:Tipo,usuario_estatus=:Estatus WHERE usuario_id=:ID");
+            $sql=mainModel::conectar()->prepare("UPDATE usuario SET usuario_nombre=:Nombre,usuario_username=:Username,usuario_email=:Email,usuario_telefono=:Telefono,usuario_tipo=:Tipo,usuario_estatus=:Estatus WHERE usuario_id=:ID");
             $sql->bindParam(":ID",$data['ID']);
             $sql->bindParam(":Nombre",$data['Nombre']);
             $sql->bindParam(":Username",$data['Username']);
-            $sql->bindParam(":Password",$data['Password']);
             $sql->bindParam(":Email",$data['Email']);
             $sql->bindParam(":Telefono",$data['Telefono']);
             $sql->bindParam(":Tipo",$data['Tipo']);
